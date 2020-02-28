@@ -1,0 +1,1550 @@
+﻿**********************
+Inicio de la transcripción de Windows PowerShell
+Hora de inicio: 20200227165815
+Nombre de usuario: IMB-LAPTOP\LENOVO
+Usuario RunAs: IMB-LAPTOP\LENOVO
+Nombre de la configuración: 
+Máquina: IMB-LAPTOP (Microsoft Windows NT 10.0.18362.0)
+Aplicación host: C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe
+Id. de proceso: 19468
+PSVersion: 5.1.18362.628
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.18362.628
+BuildVersion: 10.0.18362.628
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+La transcripción ha comenzado. El archivo de salida es C:\Users\LENOVO\Documents\PowerShell_transcript.IMB-LAPTOP.BD1I7Wuu.20200227165815.txt
+PS C:\WINDOWS\system32> get-process | export-clixml procesosTest1.xml
+PS C:\WINDOWS\system32> get-process | export-clixml procesosTest2.xml
+PS C:\WINDOWS\system32> diff -Ref (Import-Clixml .\procesosTest1.xml) -Diff (Import-Clixml .\procesosTest2.xml) -Property name
+
+name                 SideIndicator
+----                 -------------
+LeagueClientUx       <=
+LeagueClientUxRender <=
+LeagueClientUxRender <=
+
+
+PS C:\WINDOWS\system32> get-service | export-csv servicios.csv | out-file
+>> ErrorTerminación(Out-File): "No se puede procesar el argumento porque el valor del argumento "path" es NULL. Cambie el valor del argumento "path" a un valor no nulo."
+out-file : No se puede procesar el argumento porque el valor del argumento "path" es NULL. Cambie el valor del 
+argumento "path" a un valor no nulo.
+En línea: 1 Carácter: 42
++ get-service | export-csv servicios.csv | out-file
++                                          ~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Out-File], PSArgumentNullException
+    + FullyQualifiedErrorId : ArgumentNull,Microsoft.PowerShell.Commands.OutFileCommand
+out-file : No se puede procesar el argumento porque el valor del argumento "path" es NULL. Cambie el valor del argumento "path" a un valor no nulo.
+En línea: 1 Carácter: 42
++ get-service | export-csv servicios.csv | out-file
++                                          ~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Out-File], PSArgumentNullException
+    + FullyQualifiedErrorId : ArgumentNull,Microsoft.PowerShell.Commands.OutFileCommand
+
+PS C:\WINDOWS\system32> Get-Help 'Export-Csv'
+
+NOMBRE
+    Export-Csv
+
+SINOPSIS
+    Converts objects into a series of comma-separated (CSV) strings and saves the strings in a CSV file.
+
+
+SINTAXIS
+    Export-Csv [[-Path] <String>] [[-Delimiter] <Char>] [-Append] [-Confirm] [-Encoding {Unicode | UTF7 | UTF8 | ASCII | UTF32 | BigEndianUnicode | Default
+    | OEM}] [-Force] -InputObject <PSObject> [-LiteralPath <String>] [-NoClobber] [-NoTypeInformation] [-WhatIf] [<CommonParameters>]
+
+    Export-Csv [[-Path] <String>] [-Append] [-Confirm] [-Encoding {Unicode | UTF7 | UTF8 | ASCII | UTF32 | BigEndianUnicode | Default | OEM}] [-Force]
+    -InputObject <PSObject> [-LiteralPath <String>] [-NoClobber] [-NoTypeInformation] [-UseCulture] [-WhatIf] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Export-CSV cmdlet creates a CSV file of the objects that you submit. Each object is represented as a line or row of the CSV. The row consists of a
+    comma-separated list of the values of object properties. You can use this cmdlet to create spreadsheets and share data with programs that take CSV
+    files as input.
+
+    Do not format objects before sending them to the Export-CSV cmdlet. If you do, the format properties are represented in the CSV file, instead of the
+    properties of the original objects. To export only selected properties of an object, use the Select-Object cmdlet.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=821769
+    ConvertFrom-Csv
+    ConvertTo-Csv
+    Format-Table
+    Import-Csv
+    Select-Object
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Export-Csv -examples".
+    Para obtener más información, escriba: "get-help Export-Csv -detailed".
+    Para obtener información técnica, escriba: "get-help Export-Csv -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Export-Csv -online"
+
+
+PS C:\WINDOWS\system32> Get-Help 'Export-Csv'
+
+NOMBRE
+    Export-Csv
+
+SINOPSIS
+    Converts objects into a series of comma-separated (CSV) strings and saves the strings in a CSV file.
+
+
+SINTAXIS
+    Export-Csv [[-Path] <String>] [[-Delimiter] <Char>] [-Append] [-Confirm] [-Encoding {Unicode | UTF7 | UTF8 | ASCII | UTF32 | BigEndianUnicode | Default
+    | OEM}] [-Force] -InputObject <PSObject> [-LiteralPath <String>] [-NoClobber] [-NoTypeInformation] [-WhatIf] [<CommonParameters>]
+
+    Export-Csv [[-Path] <String>] [-Append] [-Confirm] [-Encoding {Unicode | UTF7 | UTF8 | ASCII | UTF32 | BigEndianUnicode | Default | OEM}] [-Force]
+    -InputObject <PSObject> [-LiteralPath <String>] [-NoClobber] [-NoTypeInformation] [-UseCulture] [-WhatIf] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Export-CSV cmdlet creates a CSV file of the objects that you submit. Each object is represented as a line or row of the CSV. The row consists of a
+    comma-separated list of the values of object properties. You can use this cmdlet to create spreadsheets and share data with programs that take CSV
+    files as input.
+
+    Do not format objects before sending them to the Export-CSV cmdlet. If you do, the format properties are represented in the CSV file, instead of the
+    properties of the original objects. To export only selected properties of an object, use the Select-Object cmdlet.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=821769
+    ConvertFrom-Csv
+    ConvertTo-Csv
+    Format-Table
+    Import-Csv
+    Select-Object
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Export-Csv -examples".
+    Para obtener más información, escriba: "get-help Export-Csv -detailed".
+    Para obtener información técnica, escriba: "get-help Export-Csv -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Export-Csv -online"
+
+
+PS C:\WINDOWS\system32> get-process | export-csv procesos.csv -Delimiter ;
+>> ErrorTerminación(Export-Csv): "Falta un argumento para el parámetro 'Delimiter'. Especifique un parámetro del tipo 'System.Char' e inténtelo de nuevo."
+Export-Csv : Falta un argumento para el parámetro 'Delimiter'. Especifique un parámetro del tipo 'System.Char' e 
+inténtelo de nuevo.
+En línea: 1 Carácter: 39
++ get-process | export-csv procesos.csv -Delimiter ;
++                                       ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Export-Csv], ParameterBindingException
+    + FullyQualifiedErrorId : MissingArgument,Microsoft.PowerShell.Commands.ExportCsvCommand
+Export-Csv : Falta un argumento para el parámetro 'Delimiter'. Especifique un parámetro del tipo 'System.Char' e inténtelo de nuevo.
+En línea: 1 Carácter: 39
++ get-process | export-csv procesos.csv -Delimiter ;
++                                       ~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Export-Csv], ParameterBindingException
+    + FullyQualifiedErrorId : MissingArgument,Microsoft.PowerShell.Commands.ExportCsvCommand
+
+PS C:\WINDOWS\system32> get-process | export-csv procesos.csv -Delimiter ";"
+PS C:\WINDOWS\system32> Get-Help 'Get-Random'
+
+NOMBRE
+    Get-Random
+
+SINOPSIS
+    Gets a random number, or selects objects randomly from a collection.
+
+
+SINTAXIS
+    Get-Random [-InputObject] <Object[]> [-Count <Int32>] [-SetSeed <Int32>] [<CommonParameters>]
+
+    Get-Random [[-Maximum] <Object>] [-Minimum <Object>] [-SetSeed <Int32>] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Get-Random cmdlet gets a randomly selected number. If you submit a collection of objects to Get-Random , it gets one or more randomly selected
+    objects from the collection.
+
+    Without parameters or input, a Get-Random command returns a randomly selected 32-bit unsigned integer between 0 (zero) and Int32.MaxValue (0x7FFFFFFF,
+    2,147,483,647).
+
+    You can use the parameters of Get-Random to specify a seed number, minimum and maximum values, and the number of objects returned from a submitted
+    collection.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=821799
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Get-Random -examples".
+    Para obtener más información, escriba: "get-help Get-Random -detailed".
+    Para obtener información técnica, escriba: "get-help Get-Random -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Get-Random -online"
+
+
+PS C:\WINDOWS\system32> help *random*
+
+NOMBRE
+    Get-Random
+
+SINOPSIS
+    Gets a random number, or selects objects randomly from a collection.
+
+
+SINTAXIS
+    Get-Random [-InputObject] <Object[]> [-Count <Int32>] [-SetSeed <Int32>] [<CommonParameters>]
+
+    Get-Random [[-Maximum] <Object>] [-Minimum <Object>] [-SetSeed <Int32>] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Get-Random cmdlet gets a randomly selected number. If you submit a collection of objects to Get-Random , it gets one or more randomly selected
+    objects from the collection.
+
+    Without parameters or input, a Get-Random command returns a randomly selected 32-bit unsigned integer between 0 (zero) and Int32.MaxValue (0x7FFFFFFF,
+    2,147,483,647).
+
+    You can use the parameters of Get-Random to specify a seed number, minimum and maximum values, and the number of objects returned from a submitted
+    collection.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=821799
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Get-Random -examples".
+    Para obtener más información, escriba: "get-help Get-Random -detailed".
+    Para obtener información técnica, escriba: "get-help Get-Random -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Get-Random -online"
+
+
+PS C:\WINDOWS\system32> help *time*
+
+Name                              Category  Module                    Synopsis
+----                              --------  ------                    --------
+New-TimeSpan                      Cmdlet    Microsoft.PowerShell.U... Creates a TimeSpan object.
+Get-TimeZone                      Cmdlet    Microsoft.PowerShell.M... Gets the current time zone or a list of available time zones.
+Set-TimeZone                      Cmdlet    Microsoft.PowerShell.M... Sets the system time zone to a specified time zone.
+
+
+PS C:\WINDOWS\system32> help Get-TimeZone
+
+NOMBRE
+    Get-TimeZone
+
+SINOPSIS
+    Gets the current time zone or a list of available time zones.
+
+
+SINTAXIS
+    Get-TimeZone -Id <String[]> [<CommonParameters>]
+
+    Get-TimeZone -ListAvailable [<CommonParameters>]
+
+    Get-TimeZone [[-Name] <String[]>] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Get-TimeZone cmdlet gets the current time zone or a list of available time zones.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=799468
+    Set-TimeZone
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Get-TimeZone -examples".
+    Para obtener más información, escriba: "get-help Get-TimeZone -detailed".
+    Para obtener información técnica, escriba: "get-help Get-TimeZone -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Get-TimeZone -online"
+
+
+PS C:\WINDOWS\system32> Get-TimeZone
+
+
+Id                         : SA Pacific Standard Time
+DisplayName                : (UTC-05:00) Bogotá, Lima, Quito, Rio Branco
+StandardName               : Hora est. Pacífico, Sudamérica
+DaylightName               : Hora verano Pacífico Sudamérica
+BaseUtcOffset              : -05:00:00
+SupportsDaylightSavingTime : False
+
+
+
+PS C:\WINDOWS\system32> help *date*
+
+Name                              Category  Module                    Synopsis
+----                              --------  ------                    --------
+Update-Help                       Cmdlet    Microsoft.PowerShell.Core Downloads and installs the newest help files on your computer.
+Get-Date                          Cmdlet    Microsoft.PowerShell.U... Gets the current date and time.
+Set-Date                          Cmdlet    Microsoft.PowerShell.U... Changes the system time on the computer to a time that you specify.
+Update-FormatData                 Cmdlet    Microsoft.PowerShell.U... Updates the formatting data in the current session.
+Update-List                       Cmdlet    Microsoft.PowerShell.U... Adds items to and removes items from a property value that contains a collection of...
+Update-TypeData                   Cmdlet    Microsoft.PowerShell.U... Updates the extended type data in the session.
+Update-Script                     Function  PowerShellGet             ...
+Update-ModuleManifest             Function  PowerShellGet             ...
+Update-Module                     Function  PowerShellGet             ...
+Update-ScriptFileInfo             Function  PowerShellGet             ...
+Update-MpSignature                Function  ConfigDefender            ...
+Update-WIMBootEntry               Cmdlet    Dism                      Update-WIMBootEntry...
+Update-AutologgerConfig           Function  EventTracingManagement    ...
+Update-EtwTraceSession            Function  EventTracingManagement    ...
+Update-IscsiTarget                Function  iSCSI                     ...
+Update-IscsiTargetPortal          Function  iSCSI                     ...
+Update-NetIPsecRule               Function  NetSecurity               ...
+Update-DscConfiguration           Function  PSDesiredStateConfigur... ...
+Update-SmbMultichannelConnection  Function  SmbShare                  ...
+Update-Disk                       Function  Storage                   ...
+Update-StorageFirmware            Function  Storage                   ...
+Update-StoragePool                Function  Storage                   ...
+Update-StorageProviderCache       Function  Storage                   ...
+Update-HostStorageCache           Function  Storage                   ...
+Get-WindowsUpdateLog              Function  WindowsUpdate             ...
+Install-WUUpdates                 Function  WindowsUpdateProvider     ...
+Get-WULastScanSuccessDate         Function  WindowsUpdateProvider     ...
+Get-WULastInstallationDate        Function  WindowsUpdateProvider     ...
+
+
+PS C:\WINDOWS\system32> Get-Date
+
+jueves, 27 de febrero de 2020 7:28:14 p. m.
+
+
+PS C:\WINDOWS\system32> help Get-Date
+
+NOMBRE
+    Get-Date
+
+SINOPSIS
+    Gets the current date and time.
+
+
+SINTAXIS
+    Get-Date [[-Date] <DateTime>] [-Day <Int32>] [-DisplayHint {Date | Time | DateTime}] [-Format <String>] [-Hour <Int32>] [-Millisecond <Int32>] [-Minute
+    <Int32>] [-Month <Int32>] [-Second <Int32>] [-Year <Int32>] [<CommonParameters>]
+
+    Get-Date [[-Date] <DateTime>] [-Day <Int32>] [-DisplayHint {Date | Time | DateTime}] [-Hour <Int32>] [-Millisecond <Int32>] [-Minute <Int32>] [-Month
+    <Int32>] [-Second <Int32>] [-UFormat <String>] [-Year <Int32>] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Get-Date cmdlet gets a DateTime object that represents the current date or a date that you specify. It can format the date and time in several
+    Windows and UNIX formats. You can use Get-Date to generate a date or time character string, and then send the string to other cmdlets or programs.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=821781
+    New-TimeSpan
+    Set-Date
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Get-Date -examples".
+    Para obtener más información, escriba: "get-help Get-Date -detailed".
+    Para obtener información técnica, escriba: "get-help Get-Date -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Get-Date -online"
+
+
+PS C:\WINDOWS\system32> Get-Date | Select-Object day
+
+Day
+---
+ 27
+
+
+PS C:\WINDOWS\system32> Get-Date | Select-Object date
+
+Date
+----
+27/02/2020 12:00:00 a. m.
+
+
+PS C:\WINDOWS\system32> Get-Help 'Get-Date'
+
+NOMBRE
+    Get-Date
+
+SINOPSIS
+    Gets the current date and time.
+
+
+SINTAXIS
+    Get-Date [[-Date] <DateTime>] [-Day <Int32>] [-DisplayHint {Date | Time | DateTime}] [-Format <String>] [-Hour <Int32>] [-Millisecond <Int32>] [-Minute
+    <Int32>] [-Month <Int32>] [-Second <Int32>] [-Year <Int32>] [<CommonParameters>]
+
+    Get-Date [[-Date] <DateTime>] [-Day <Int32>] [-DisplayHint {Date | Time | DateTime}] [-Hour <Int32>] [-Millisecond <Int32>] [-Minute <Int32>] [-Month
+    <Int32>] [-Second <Int32>] [-UFormat <String>] [-Year <Int32>] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Get-Date cmdlet gets a DateTime object that represents the current date or a date that you specify. It can format the date and time in several
+    Windows and UNIX formats. You can use Get-Date to generate a date or time character string, and then send the string to other cmdlets or programs.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=821781
+    New-TimeSpan
+    Set-Date
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Get-Date -examples".
+    Para obtener más información, escriba: "get-help Get-Date -detailed".
+    Para obtener información técnica, escriba: "get-help Get-Date -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Get-Date -online"
+
+
+PS C:\WINDOWS\system32> Get-Date | Select-Object A
+
+A
+-
+
+
+
+PS C:\WINDOWS\system32> Get-Date | Select-Object DayOfWeek
+
+DayOfWeek
+---------
+ Thursday
+
+
+PS C:\WINDOWS\system32> help *hotfixes*
+
+Name                              Category  Module                    Synopsis
+----                              --------  ------                    --------
+Get-HotFix                        Cmdlet    Microsoft.PowerShell.M... Gets the hotfixes that have been applied to the local and remote computers.
+about_Sequence                    HelpFile                            Describes the Sequence keyword, which runs selected
+about_Sequence                    HelpFile                            Describes the Sequence keyword, which runs selected
+
+
+PS C:\WINDOWS\system32> Get-HotFix
+
+Source        Description      HotFixID      InstalledBy          InstalledOn
+------        -----------      --------      -----------          -----------
+IMB-LAPTOP    Update           KB4534132     NT AUTHORITY\SYSTEM  12/02/2020 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4503308     NT AUTHORITY\SYSTEM  2/09/2019 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4508433     NT AUTHORITY\SYSTEM  31/08/2019 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4515383     NT AUTHORITY\SYSTEM  11/09/2019 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4516115     NT AUTHORITY\SYSTEM  11/09/2019 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4520390     NT AUTHORITY\SYSTEM  5/10/2019 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4521863     NT AUTHORITY\SYSTEM  9/10/2019 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4524244     NT AUTHORITY\SYSTEM  14/02/2020 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4524569     NT AUTHORITY\SYSTEM  14/11/2019 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4528759     NT AUTHORITY\SYSTEM  16/01/2020 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4537759     NT AUTHORITY\SYSTEM  12/02/2020 12:00:00 a. m.
+IMB-LAPTOP    Security Update  KB4538674     NT AUTHORITY\SYSTEM  12/02/2020 12:00:00 a. m.
+IMB-LAPTOP    Update           KB4532693     NT AUTHORITY\SYSTEM  12/02/2020 12:00:00 a. m.
+
+
+PS C:\WINDOWS\system32> Get-HotFix | select -Property InstalledOn,InstalledBy,HotFixId | sort InstalledOn
+
+InstalledOn               InstalledBy         HotFixId
+-----------               -----------         --------
+31/08/2019 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4508433
+2/09/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4503308
+11/09/2019 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4515383
+11/09/2019 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4516115
+5/10/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4520390
+9/10/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4521863
+14/11/2019 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4524569
+16/01/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4528759
+12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4534132
+12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4537759
+12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4538674
+12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4532693
+14/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4524244
+
+
+PS C:\WINDOWS\system32> Get-HotFix | select -Property Description,HotFixId,InstalledOn | sort Description
+
+Description     HotFixId  InstalledOn
+-----------     --------  -----------
+Security Update KB4503308 2/09/2019 12:00:00 a. m.
+Security Update KB4508433 31/08/2019 12:00:00 a. m.
+Security Update KB4515383 11/09/2019 12:00:00 a. m.
+Security Update KB4516115 11/09/2019 12:00:00 a. m.
+Security Update KB4520390 5/10/2019 12:00:00 a. m.
+Security Update KB4521863 9/10/2019 12:00:00 a. m.
+Security Update KB4524244 14/02/2020 12:00:00 a. m.
+Security Update KB4524569 14/11/2019 12:00:00 a. m.
+Security Update KB4528759 16/01/2020 12:00:00 a. m.
+Security Update KB4537759 12/02/2020 12:00:00 a. m.
+Security Update KB4538674 12/02/2020 12:00:00 a. m.
+Update          KB4534132 12/02/2020 12:00:00 a. m.
+Update          KB4532693 12/02/2020 12:00:00 a. m.
+
+
+PS C:\WINDOWS\system32> help *log*
+
+Name                              Category  Module                    Synopsis
+----                              --------  ------                    --------
+Clear-EventLog                    Cmdlet    Microsoft.PowerShell.M... Clears all entries from specified event logs on the local or remote computers.
+Get-EventLog                      Cmdlet    Microsoft.PowerShell.M... Gets the events in an event log, or a list of the event logs, on the local or remot...
+Limit-EventLog                    Cmdlet    Microsoft.PowerShell.M... Sets the event log properties that limit the size of the event log and the age of i...
+New-EventLog                      Cmdlet    Microsoft.PowerShell.M... Creates a new event log and a new event source on a local or remote computer.
+Remove-EventLog                   Cmdlet    Microsoft.PowerShell.M... Deletes an event log or unregisters an event source.
+Show-EventLog                     Cmdlet    Microsoft.PowerShell.M... Displays the event logs of the local or a remote computer in Event Viewer.
+Write-EventLog                    Cmdlet    Microsoft.PowerShell.M... Writes an event to an event log.
+Enable-AppBackgroundTaskDiagno... Cmdlet    AppBackgroundTask         Enable-AppBackgroundTaskDiagnosticLog...
+Disable-AppBackgroundTaskDiagn... Cmdlet    AppBackgroundTask         Disable-AppBackgroundTaskDiagnosticLog...
+Get-AppxLog                       Function  Appx                      ...
+Export-BinaryMiLog                Cmdlet    CimCmdlets                Export-BinaryMiLog...
+Import-BinaryMiLog                Cmdlet    CimCmdlets                Import-BinaryMiLog...
+Get-MpThreatCatalog               Function  ConfigDefender            ...
+Get-DeliveryOptimizationLog       Cmdlet    DeliveryOptimization      Get-DeliveryOptimizationLog...
+Start-AutologgerConfig            Function  EventTracingManagement    ...
+Remove-AutologgerConfig           Function  EventTracingManagement    ...
+Get-AutologgerConfig              Function  EventTracingManagement    ...
+Update-AutologgerConfig           Function  EventTracingManagement    ...
+New-AutologgerConfig              Function  EventTracingManagement    ...
+Test-FileCatalog                  Cmdlet    Microsoft.PowerShell.S... Test-FileCatalog...
+New-FileCatalog                   Cmdlet    Microsoft.PowerShell.S... New-FileCatalog...
+Set-DtcLog                        Function  MsDtc                     ...
+Get-DtcLog                        Function  MsDtc                     ...
+Reset-DtcLog                      Function  MsDtc                     ...
+Get-PcsvDeviceLog                 Function  PcsvDevice                ...
+Clear-PcsvDeviceLog               Function  PcsvDevice                ...
+Get-LogProperties                 Function  PSDiagnostics             ...
+Set-LogProperties                 Function  PSDiagnostics             ...
+Stop-StorageDiagnosticLog         Function  Storage                   ...
+Start-StorageDiagnosticLog        Function  Storage                   ...
+Get-WindowsUpdateLog              Function  WindowsUpdate             ...
+about_Eventlogs                   HelpFile                            Windows PowerShell creates a Windows event log that is
+about_Logical_Operators           HelpFile                            Describes the operators that connect statements in Windows PowerShell.
+
+
+PS C:\WINDOWS\system32> help Get-EventLog
+
+NOMBRE
+    Get-EventLog
+
+SINOPSIS
+    Gets the events in an event log, or a list of the event logs, on the local or remote computers.
+
+
+SINTAXIS
+    Get-EventLog [-LogName] <String> [[-InstanceId] <Int64[]>] [-After <DateTime>] [-AsBaseObject] [-Before <DateTime>] [-ComputerName <String[]>]
+    [-EntryType {Error | Information | FailureAudit | SuccessAudit | Warning}] [-Index <Int32[]>] [-Message <String>] [-Newest <Int32>] [-Source
+    <String[]>] [-UserName <String[]>] [<CommonParameters>]
+
+    Get-EventLog [-AsString] [-ComputerName <String[]>] [-List] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Get-EventLog cmdlet gets events and event logs on the local and remote computers.
+
+    You can use the parameters of this cmdlet to search for events by using their property values. This cmdlet gets only the events that match all of the
+    specified property values.
+
+    The cmdlets that contain the EventLog noun work only on classic event logs. To get events from logs that use the Windows Event Log technology in
+    Windows Vista and later versions of Windows, use Get-WinEvent.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=821585
+    Clear-EventLog
+    Limit-EventLog
+    New-EventLog
+    Remove-EventLog
+    Show-EventLog
+    Write-EventLog
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Get-EventLog -examples".
+    Para obtener más información, escriba: "get-help Get-EventLog -detailed".
+    Para obtener información técnica, escriba: "get-help Get-EventLog -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Get-EventLog -online"
+
+
+PS C:\WINDOWS\system32> Get-Help 'Get-EventLog'
+
+NOMBRE
+    Get-EventLog
+
+SINOPSIS
+    Gets the events in an event log, or a list of the event logs, on the local or remote computers.
+
+
+SINTAXIS
+    Get-EventLog [-LogName] <String> [[-InstanceId] <Int64[]>] [-After <DateTime>] [-AsBaseObject] [-Before <DateTime>] [-ComputerName <String[]>]
+    [-EntryType {Error | Information | FailureAudit | SuccessAudit | Warning}] [-Index <Int32[]>] [-Message <String>] [-Newest <Int32>] [-Source
+    <String[]>] [-UserName <String[]>] [<CommonParameters>]
+
+    Get-EventLog [-AsString] [-ComputerName <String[]>] [-List] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Get-EventLog cmdlet gets events and event logs on the local and remote computers.
+
+    You can use the parameters of this cmdlet to search for events by using their property values. This cmdlet gets only the events that match all of the
+    specified property values.
+
+    The cmdlets that contain the EventLog noun work only on classic event logs. To get events from logs that use the Windows Event Log technology in
+    Windows Vista and later versions of Windows, use Get-WinEvent.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=821585
+    Clear-EventLog
+    Limit-EventLog
+    New-EventLog
+    Remove-EventLog
+    Show-EventLog
+    Write-EventLog
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Get-EventLog -examples".
+    Para obtener más información, escriba: "get-help Get-EventLog -detailed".
+    Para obtener información técnica, escriba: "get-help Get-EventLog -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Get-EventLog -online"
+
+
+PS C:\WINDOWS\system32> Get-EventLog -Newest 50
+>> ErrorTerminación(): "Se ha detenido la canalización."
+>> ErrorTerminación(): "Se ha detenido la canalización."
+PS C:\WINDOWS\system32> Get-EventLog -Newest "50"
+>> ErrorTerminación(): "Se ha detenido la canalización."
+>> ErrorTerminación(): "Se ha detenido la canalización."
+PS C:\WINDOWS\system32> Get-Help 'Get-EventLog'
+
+NOMBRE
+    Get-EventLog
+
+SINOPSIS
+    Gets the events in an event log, or a list of the event logs, on the local or remote computers.
+
+
+SINTAXIS
+    Get-EventLog [-LogName] <String> [[-InstanceId] <Int64[]>] [-After <DateTime>] [-AsBaseObject] [-Before <DateTime>] [-ComputerName <String[]>]
+    [-EntryType {Error | Information | FailureAudit | SuccessAudit | Warning}] [-Index <Int32[]>] [-Message <String>] [-Newest <Int32>] [-Source
+    <String[]>] [-UserName <String[]>] [<CommonParameters>]
+
+    Get-EventLog [-AsString] [-ComputerName <String[]>] [-List] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Get-EventLog cmdlet gets events and event logs on the local and remote computers.
+
+    You can use the parameters of this cmdlet to search for events by using their property values. This cmdlet gets only the events that match all of the
+    specified property values.
+
+    The cmdlets that contain the EventLog noun work only on classic event logs. To get events from logs that use the Windows Event Log technology in
+    Windows Vista and later versions of Windows, use Get-WinEvent.
+
+
+VÍNCULOS RELACIONADOS
+    Online Version: http://go.microsoft.com/fwlink/?LinkId=821585
+    Clear-EventLog
+    Limit-EventLog
+    New-EventLog
+    Remove-EventLog
+    Show-EventLog
+    Write-EventLog
+
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Get-EventLog -examples".
+    Para obtener más información, escriba: "get-help Get-EventLog -detailed".
+    Para obtener información técnica, escriba: "get-help Get-EventLog -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Get-EventLog -online"
+
+
+PS C:\WINDOWS\system32> Get-EventLog -List -Newest 50
+>> ErrorTerminación(Get-EventLog): "No se puede resolver el conjunto de parámetros usando los parámetros con nombre especificados."
+Get-EventLog : No se puede resolver el conjunto de parámetros usando los parámetros con nombre especificados.
+En línea: 1 Carácter: 1
++ Get-EventLog -List -Newest 50
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-EventLog], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.PowerShell.Commands.GetEventLogCommand
+Get-EventLog : No se puede resolver el conjunto de parámetros usando los parámetros con nombre especificados.
+En línea: 1 Carácter: 1
++ Get-EventLog -List -Newest 50
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-EventLog], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.PowerShell.Commands.GetEventLogCommand
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50
+
+   Index Time          EntryType   Source                 InstanceID Message
+   ----- ----          ---------   ------                 ---------- -------
+   25484 feb. 27 19:19 Information Microsoft-Windows...            1 El sistema estaba en un estado de baja energía y se reanudó....
+   25483 feb. 27 19:19 Error       VBoxNetLwf             3221487628 El controlador detectó un error interno del controlador en \Device\VBoxNetLwf.
+   25482 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25481 feb. 27 19:19 Information BTHUSB                 1074069522 Windows no puede almacenar códigos de autenticación de Bluetooth (claves de vínculo)...
+   25480 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25479 feb. 27 19:19 Information Microsoft-Windows...          130 No se encontró la descripción del id. de evento '130' en el origen 'Microsoft-Window...
+   25478 feb. 27 19:19 Information Microsoft-Windows...          131 No se encontró la descripción del id. de evento '131' en el origen 'Microsoft-Window...
+   25477 feb. 27 19:19 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-28T00:19:11.500000000Z...
+   25476 feb. 27 17:38 Information Microsoft-Windows...          107 No se encontró la descripción del id. de evento '107' en el origen 'Microsoft-Window...
+   25475 feb. 27 17:38 Information Microsoft-Windows...           42 No se encontró la descripción del id. de evento '42' en el origen 'Microsoft-Windows...
+   25474 feb. 27 17:11 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-27T22:11:36.843224300Z...
+   25473 feb. 27 17:11 Information Microsoft-Windows...           35 El servicio de hora está sincronizando la hora del sistema con el origen de la hora ...
+   25472 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25471 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25470 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25469 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25468 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25467 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25466 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25465 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25464 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25463 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25462 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25461 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25460 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25459 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25458 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25457 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25456 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25455 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25454 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25453 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25452 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25451 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25450 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25449 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25448 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25447 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25446 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25445 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25444 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25443 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25442 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25441 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25440 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25439 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25438 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25437 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25436 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25435 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | sort Time -Descending
+
+   Index Time          EntryType   Source                 InstanceID Message
+   ----- ----          ---------   ------                 ---------- -------
+   25484 feb. 27 19:19 Information Microsoft-Windows...            1 El sistema estaba en un estado de baja energía y se reanudó....
+   25457 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25456 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25455 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25454 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25453 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25452 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25451 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25450 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25449 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25448 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25447 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25446 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25445 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25444 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25443 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25442 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25441 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25440 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25439 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25438 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25437 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25458 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25459 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25460 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25461 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25483 feb. 27 19:19 Error       VBoxNetLwf             3221487628 El controlador detectó un error interno del controlador en \Device\VBoxNetLwf.
+   25482 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25481 feb. 27 19:19 Information BTHUSB                 1074069522 Windows no puede almacenar códigos de autenticación de Bluetooth (claves de vínculo)...
+   25480 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25479 feb. 27 19:19 Information Microsoft-Windows...          130 No se encontró la descripción del id. de evento '130' en el origen 'Microsoft-Window...
+   25478 feb. 27 19:19 Information Microsoft-Windows...          131 No se encontró la descripción del id. de evento '131' en el origen 'Microsoft-Window...
+   25477 feb. 27 19:19 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-28T00:19:11.500000000Z...
+   25476 feb. 27 17:38 Information Microsoft-Windows...          107 No se encontró la descripción del id. de evento '107' en el origen 'Microsoft-Window...
+   25475 feb. 27 17:38 Information Microsoft-Windows...           42 No se encontró la descripción del id. de evento '42' en el origen 'Microsoft-Windows...
+   25474 feb. 27 17:11 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-27T22:11:36.843224300Z...
+   25436 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25473 feb. 27 17:11 Information Microsoft-Windows...           35 El servicio de hora está sincronizando la hora del sistema con el origen de la hora ...
+   25471 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25470 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25469 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25468 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25467 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25466 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25465 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25464 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25463 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25462 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25472 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25435 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | sort Time 
+
+   Index Time          EntryType   Source                 InstanceID Message
+   ----- ----          ---------   ------                 ---------- -------
+   25484 feb. 27 19:19 Information Microsoft-Windows...            1 El sistema estaba en un estado de baja energía y se reanudó....
+   25457 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25456 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25455 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25454 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25453 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25452 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25451 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25450 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25449 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25448 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25447 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25446 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25445 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25444 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25443 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25442 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25441 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25440 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25439 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25438 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25437 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25458 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25459 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25460 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25461 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25483 feb. 27 19:19 Error       VBoxNetLwf             3221487628 El controlador detectó un error interno del controlador en \Device\VBoxNetLwf.
+   25482 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25481 feb. 27 19:19 Information BTHUSB                 1074069522 Windows no puede almacenar códigos de autenticación de Bluetooth (claves de vínculo)...
+   25480 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25479 feb. 27 19:19 Information Microsoft-Windows...          130 No se encontró la descripción del id. de evento '130' en el origen 'Microsoft-Window...
+   25478 feb. 27 19:19 Information Microsoft-Windows...          131 No se encontró la descripción del id. de evento '131' en el origen 'Microsoft-Window...
+   25477 feb. 27 19:19 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-28T00:19:11.500000000Z...
+   25476 feb. 27 17:38 Information Microsoft-Windows...          107 No se encontró la descripción del id. de evento '107' en el origen 'Microsoft-Window...
+   25475 feb. 27 17:38 Information Microsoft-Windows...           42 No se encontró la descripción del id. de evento '42' en el origen 'Microsoft-Windows...
+   25474 feb. 27 17:11 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-27T22:11:36.843224300Z...
+   25436 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25473 feb. 27 17:11 Information Microsoft-Windows...           35 El servicio de hora está sincronizando la hora del sistema con el origen de la hora ...
+   25471 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25470 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25469 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25468 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25467 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25466 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25465 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25464 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25463 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25462 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25472 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25435 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | sort Time -Descending
+
+   Index Time          EntryType   Source                 InstanceID Message
+   ----- ----          ---------   ------                 ---------- -------
+   25484 feb. 27 19:19 Information Microsoft-Windows...            1 El sistema estaba en un estado de baja energía y se reanudó....
+   25457 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25456 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25455 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25454 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25453 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25452 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25451 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25450 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25449 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25448 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25447 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25446 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25445 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25444 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25443 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25442 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25441 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25440 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25439 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25438 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25437 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25458 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25459 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25460 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25461 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25483 feb. 27 19:19 Error       VBoxNetLwf             3221487628 El controlador detectó un error interno del controlador en \Device\VBoxNetLwf.
+   25482 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25481 feb. 27 19:19 Information BTHUSB                 1074069522 Windows no puede almacenar códigos de autenticación de Bluetooth (claves de vínculo)...
+   25480 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25479 feb. 27 19:19 Information Microsoft-Windows...          130 No se encontró la descripción del id. de evento '130' en el origen 'Microsoft-Window...
+   25478 feb. 27 19:19 Information Microsoft-Windows...          131 No se encontró la descripción del id. de evento '131' en el origen 'Microsoft-Window...
+   25477 feb. 27 19:19 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-28T00:19:11.500000000Z...
+   25476 feb. 27 17:38 Information Microsoft-Windows...          107 No se encontró la descripción del id. de evento '107' en el origen 'Microsoft-Window...
+   25475 feb. 27 17:38 Information Microsoft-Windows...           42 No se encontró la descripción del id. de evento '42' en el origen 'Microsoft-Windows...
+   25474 feb. 27 17:11 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-27T22:11:36.843224300Z...
+   25436 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25473 feb. 27 17:11 Information Microsoft-Windows...           35 El servicio de hora está sincronizando la hora del sistema con el origen de la hora ...
+   25471 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25470 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25469 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25468 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25467 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25466 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25465 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25464 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25463 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25462 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25472 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25435 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | sort Time 
+
+   Index Time          EntryType   Source                 InstanceID Message
+   ----- ----          ---------   ------                 ---------- -------
+   25484 feb. 27 19:19 Information Microsoft-Windows...            1 El sistema estaba en un estado de baja energía y se reanudó....
+   25457 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25456 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25455 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25454 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25453 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25452 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25451 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25450 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25449 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25448 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25447 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25446 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25445 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25444 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25443 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25442 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25441 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25440 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25439 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25438 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25437 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25458 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25459 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25460 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25461 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25483 feb. 27 19:19 Error       VBoxNetLwf             3221487628 El controlador detectó un error interno del controlador en \Device\VBoxNetLwf.
+   25482 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25481 feb. 27 19:19 Information BTHUSB                 1074069522 Windows no puede almacenar códigos de autenticación de Bluetooth (claves de vínculo)...
+   25480 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25479 feb. 27 19:19 Information Microsoft-Windows...          130 No se encontró la descripción del id. de evento '130' en el origen 'Microsoft-Window...
+   25478 feb. 27 19:19 Information Microsoft-Windows...          131 No se encontró la descripción del id. de evento '131' en el origen 'Microsoft-Window...
+   25477 feb. 27 19:19 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-28T00:19:11.500000000Z...
+   25476 feb. 27 17:38 Information Microsoft-Windows...          107 No se encontró la descripción del id. de evento '107' en el origen 'Microsoft-Window...
+   25475 feb. 27 17:38 Information Microsoft-Windows...           42 No se encontró la descripción del id. de evento '42' en el origen 'Microsoft-Windows...
+   25474 feb. 27 17:11 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-27T22:11:36.843224300Z...
+   25436 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25473 feb. 27 17:11 Information Microsoft-Windows...           35 El servicio de hora está sincronizando la hora del sistema con el origen de la hora ...
+   25471 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25470 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25469 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25468 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25467 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25466 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25465 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25464 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25463 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25462 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25472 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25435 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | select -Property Time
+
+Time
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS C:\WINDOWS\system32> Get-Help EventLog -Detailed
+
+Name                              Category  Module                    Synopsis
+----                              --------  ------                    --------
+Clear-EventLog                    Cmdlet    Microsoft.PowerShell.M... Clears all entries from specified event logs on the local or remote computers.
+Get-EventLog                      Cmdlet    Microsoft.PowerShell.M... Gets the events in an event log, or a list of the event logs, on the local or remot...
+Limit-EventLog                    Cmdlet    Microsoft.PowerShell.M... Sets the event log properties that limit the size of the event log and the age of i...
+New-EventLog                      Cmdlet    Microsoft.PowerShell.M... Creates a new event log and a new event source on a local or remote computer.
+Remove-EventLog                   Cmdlet    Microsoft.PowerShell.M... Deletes an event log or unregisters an event source.
+Show-EventLog                     Cmdlet    Microsoft.PowerShell.M... Displays the event logs of the local or a remote computer in Event Viewer.
+Write-EventLog                    Cmdlet    Microsoft.PowerShell.M... Writes an event to an event log.
+about_Eventlogs                   HelpFile                            Windows PowerShell creates a Windows event log that is
+
+
+PS C:\WINDOWS\system32> Get-Help Get-EventLog -Detailed
+
+NOMBRE
+    Get-EventLog
+
+SINOPSIS
+    Gets the events in an event log, or a list of the event logs, on the local or remote computers.
+
+
+SINTAXIS
+    Get-EventLog [-LogName] <String> [[-InstanceId] <Int64[]>] [-After <DateTime>] [-AsBaseObject] [-Before <DateTime>] [-ComputerName <String[]>]
+    [-EntryType {Error | Information | FailureAudit | SuccessAudit | Warning}] [-Index <Int32[]>] [-Message <String>] [-Newest <Int32>] [-Source
+    <String[]>] [-UserName <String[]>] [<CommonParameters>]
+
+    Get-EventLog [-AsString] [-ComputerName <String[]>] [-List] [<CommonParameters>]
+
+
+DESCRIPCIÓN
+    The Get-EventLog cmdlet gets events and event logs on the local and remote computers.
+
+    You can use the parameters of this cmdlet to search for events by using their property values. This cmdlet gets only the events that match all of the
+    specified property values.
+
+    The cmdlets that contain the EventLog noun work only on classic event logs. To get events from logs that use the Windows Event Log technology in
+    Windows Vista and later versions of Windows, use Get-WinEvent.
+
+
+PARÁMETROS
+    -After <DateTime>
+        Specifies the data and time that this cmdlet get events that occur after. Enter a DateTime object, such as the one returned by the Get-Date cmdlet.
+
+    -AsBaseObject [<SwitchParameter>]
+        Indicates that this cmdlet returns a standard System.Diagnostics.EventLogEntry object for each event. Without this parameter, this cmdlet returns
+        an extended PSObject object with additional EventLogName , Source , and InstanceId properties.
+
+        To see the effect of this parameter, pipe the events to the Get-Member cmdlet and examine the TypeName value in the result.
+
+    -AsString [<SwitchParameter>]
+        Indicates that this cmdlet returns the output as strings, instead of objects.
+
+    -Before <DateTime>
+        Specifies the data and time that this cmdlet get events that occur before. Enter a DateTime object, such as the one returned by the Get-Date cmdlet.
+
+    -ComputerName <String[]>
+        Specifies a remote computer. The default is the local computer.
+
+        Type the NetBIOS name, an Internet Protocol (IP) address, or a fully qualified domain name (FQDN) of a remote computer. To specify the local
+        computer, type the computer name, a dot (.), or localhost.
+
+        This parameter does not rely on Windows PowerShell remoting. You can use the ComputerName parameter of Get-EventLog even if your computer is not
+        configured to run remote commands.
+
+    -EntryType <String[]>
+        Specifies, as a string array, the entry type of the events that this cmdlet gets.
+
+        The acceptable values for this parameter are:
+
+        - Error
+
+        - Information
+
+        - FailureAudit
+
+        - SuccessAudit
+
+        - Warning.
+
+        The default is all events.
+
+    -Index <Int32[]>
+        Specifies the index values that this cmdlet gets events from.
+
+    -InstanceId <Int64[]>
+        Specifies the instance IDs that this cmdlet gets events from.
+
+    -List [<SwitchParameter>]
+        Indicates that this cmdlet gets a list of event logs on the computer.
+
+    -LogName <String>
+        Specifies the event log. Enter the log name (the value of the Log property; not the LogDisplayName) of one event log. Wildcard characters are not
+        permitted. This parameter is required.
+
+    -Message <String>
+        Specifies a string in the event message that this cmdlet gets event information from. You can use this property to search for messages that contain
+        certain words or phrases. Wildcards are permitted.
+
+    -Newest <Int32>
+        Specifies the maximum number of events that this cmdlet gets. This cmdlet gets the specified number of events, beginning with the newest event in
+        the log.
+
+    -Source <String[]>
+        Specifies, as a string array, sources that were written to the log that this cmdlet gets. Wildcards are permitted.
+
+    -UserName <String[]>
+        Specifies, as a string array, user names that are associated with events. Enter names or name patterns, such as User01, User , or Domain01\User .
+        Wildcards are permitted.
+
+    <CommonParameters>
+        Este cmdlet admite los parámetros comunes: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable y OutVariable. Para obtener más información, consulta
+        about_CommonParameters (https:/go.microsoft.com/fwlink/?LinkID=113216).
+
+    Example 1: Get event logs on a computer
+
+    PS C:\>Get-EventLog -List
+
+    This command gets the event logs on the computer.
+    Example 2: Get the five most recent entries from a specific event log
+
+    PS C:\>Get-EventLog -Newest 5 -LogName "Application"
+
+    This command gets the five most recent entries from the Application event log.
+    Example 3: Find all sources that are represented in a specific number of entries in an event log
+
+    PS C:\>$Events = Get-Eventlog -LogName system -Newest 1000
+    PS C:\>$Events | Group-Object -Property source -noelement | Sort-Object -Property count -Descending
+
+
+
+
+
+
+
+
+
+
+
+    Count Name
+    ----- ----
+    75    Service Control Manager
+    12    Print
+    6     UmrdpService
+    2     DnsApi
+    2     DCOM
+    1     Dhcp
+    1     TermDD
+    1     volsnap
+
+    This example shows how to find all of the sources that are represented in the 1000 most recent entries in the System event log.
+
+    The first command gets the 1,000 most recent entries from the System event log and stores them in the $Events variable.
+
+    The second command uses a pipeline operator (|) to send the events in $Events to the Group-Object cmdlet, which groups the entries by the value of the
+    Source property. The command uses a second pipeline operator to send the grouped events to the Sort-Object cmdlet, which sorts them in descending
+    order, so the most frequently appearing source is listed first.
+
+    Source is just one property of event log entries. To see all of the properties of an event log entry, pipe the event log entries to the Get-Member
+    cmdlet.
+    Example 4: Get error events from a specific event log
+
+    PS C:\>Get-EventLog -LogName System -EntryType Error
+
+    This command gets only error events from the System event log.
+    Example 5: Get events from a specific event log with an Instance ID and Source value
+
+    PS C:\>Get-EventLog -LogName System -InstanceID 3221235481 -Source "DCOM"
+
+    This command gets events from the System log that have an InstanceID of 3221235481 and a Source value of DCOM.
+    Example 6: Get event log events from multiple computers
+
+    PS C:\>Get-EventLog -LogName "Windows PowerShell" -ComputerName "localhost", "Server01", "Server02"
+
+    This command gets the events from the Windows PowerShell event log on three computers, Server01, Server02, and the local computer, known as localhost.
+    Example 7: Get all events in an event log that have include a specific word in the message value
+
+    PS C:\>Get-EventLog -LogName "Windows PowerShell" -Message "*failed*"
+
+    This command gets all the events in the Windows PowerShell event log that have a message value that includes the word failed.
+    Example 8: Display the property values of an event in a list
+
+    PS C:\>$A = Get-EventLog -Log System -Newest 1
+    PS C:\>$A | Format-List -Property *
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    EventID            : 7036
+    MachineName        : Server01
+    Data               : {}
+    Index              : 10238
+    Category           : (0)
+    CategoryNumber     : 0
+    EntryType          : Information
+    Message            : The description for Event ID
+    Source             : Service Control Manager
+    ReplacementStrings : {WinHTTP Web Proxy Auto-Disco
+    InstanceId         : 1073748860
+    TimeGenerated      : 4/11/2008 9:56:05 PM
+    TimeWritten        : 4/11/2008 9:56:05 PM
+    UserName           :
+    Site               :
+    Container          :
+
+    This example shows how to display the property values of an event in a list.
+
+    The first command gets the newest event from the System event log and saves it in the $A variable.
+
+    The second command uses a pipeline operator (|) to send the event in $a to the Format-List command, which displays all (*) of the event properties.
+    Example 9: Get events from an event log with using a source and event ID
+
+    PS C:\>Get-EventLog -Log "Application" -Source "Outlook" | where {$_.eventID -eq 34}
+
+    This command gets events in the Application event log where the source is Outlook and the event ID is 34. Even though this cmdlet does not have an
+    EventID parameter, you can use the Where-Object cmdlet to select events based on the value of any event property.
+    Example 10: Get event in an event log that is grouped by a property
+
+    PS C:\>Get-EventLog -Log System -UserName "NT*" | Group-Object -Property "UserName" -noelement | Format-Table Count, Name -Auto
+
+
+
+
+
+
+    Count Name
+    ----- ----
+    6031  NT AUTHORITY\SYSTEM
+    42    NT AUTHORITY\LOCAL SERVICE
+    4     NT AUTHORITY\NETWORK SERVICE
+
+    This command returns the events in the system log grouped by the value of their UserName property. This command uses the UserName parameter to get only
+    events in which the user name begins with NT*.
+    Example 11: Get all errors in an event log that occurred during a specific time frame
+
+    PS C:\>$May31 = Get-Date 5/31/08
+    PS C:\>$July1 = Get-Date 7/01/08
+    PS C:\>Get-EventLog -Log "Windows PowerShell" -EntryType Error -After $May31 -before $July1
+
+    This command gets all of the errors in the Windows PowerShell event log that occurred in June 2008.
+NOTAS
+    Para ver los ejemplos, escriba: "get-help Get-EventLog -examples".
+    Para obtener más información, escriba: "get-help Get-EventLog -detailed".
+    Para obtener información técnica, escriba: "get-help Get-EventLog -full".
+    Para obtener ayuda disponible en línea, escriba: "get-help Get-EventLog -online"
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | select -Property TimeGenerated
+
+TimeGenerated
+-------------
+27/02/2020 7:19:25 p. m.
+27/02/2020 7:19:24 p. m.
+27/02/2020 7:19:19 p. m.
+27/02/2020 7:19:12 p. m.
+27/02/2020 7:19:12 p. m.
+27/02/2020 7:19:11 p. m.
+27/02/2020 7:19:11 p. m.
+27/02/2020 7:19:11 p. m.
+27/02/2020 5:38:48 p. m.
+27/02/2020 5:38:45 p. m.
+27/02/2020 5:11:36 p. m.
+27/02/2020 5:11:36 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:27 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+27/02/2020 5:11:26 p. m.
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | sort TimeGenerated -Descending
+
+   Index Time          EntryType   Source                 InstanceID Message
+   ----- ----          ---------   ------                 ---------- -------
+   25484 feb. 27 19:19 Information Microsoft-Windows...            1 El sistema estaba en un estado de baja energía y se reanudó....
+   25483 feb. 27 19:19 Error       VBoxNetLwf             3221487628 El controlador detectó un error interno del controlador en \Device\VBoxNetLwf.
+   25482 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25481 feb. 27 19:19 Information BTHUSB                 1074069522 Windows no puede almacenar códigos de autenticación de Bluetooth (claves de vínculo)...
+   25480 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25479 feb. 27 19:19 Information Microsoft-Windows...          130 No se encontró la descripción del id. de evento '130' en el origen 'Microsoft-Window...
+   25478 feb. 27 19:19 Information Microsoft-Windows...          131 No se encontró la descripción del id. de evento '131' en el origen 'Microsoft-Window...
+   25477 feb. 27 19:19 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-28T00:19:11.500000000Z...
+   25476 feb. 27 17:38 Information Microsoft-Windows...          107 No se encontró la descripción del id. de evento '107' en el origen 'Microsoft-Window...
+   25475 feb. 27 17:38 Information Microsoft-Windows...           42 No se encontró la descripción del id. de evento '42' en el origen 'Microsoft-Windows...
+   25474 feb. 27 17:11 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-27T22:11:36.843224300Z...
+   25473 feb. 27 17:11 Information Microsoft-Windows...           35 El servicio de hora está sincronizando la hora del sistema con el origen de la hora ...
+   25461 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25462 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25463 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25464 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25465 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25466 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25467 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25468 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25469 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25470 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25471 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25472 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25446 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25445 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25444 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25443 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25442 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25440 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25447 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25439 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25438 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25437 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25441 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25448 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25460 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25450 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25451 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25452 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25453 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25454 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25455 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25456 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25457 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25458 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25459 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25436 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25449 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25435 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | sort TimeGenerated 
+
+   Index Time          EntryType   Source                 InstanceID Message
+   ----- ----          ---------   ------                 ---------- -------
+   25460 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25457 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25456 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25455 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25454 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25453 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25452 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25451 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25450 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25449 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25448 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25447 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25446 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25445 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25444 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25443 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25442 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25441 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25440 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25439 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25438 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25437 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25458 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25459 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25435 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25436 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25461 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25462 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25463 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25464 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25465 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25466 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25467 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25468 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25469 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25470 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25471 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25472 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25473 feb. 27 17:11 Information Microsoft-Windows...           35 El servicio de hora está sincronizando la hora del sistema con el origen de la hora ...
+   25474 feb. 27 17:11 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-27T22:11:36.843224300Z...
+   25475 feb. 27 17:38 Information Microsoft-Windows...           42 No se encontró la descripción del id. de evento '42' en el origen 'Microsoft-Windows...
+   25476 feb. 27 17:38 Information Microsoft-Windows...          107 No se encontró la descripción del id. de evento '107' en el origen 'Microsoft-Window...
+   25477 feb. 27 19:19 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-28T00:19:11.500000000Z...
+   25478 feb. 27 19:19 Information Microsoft-Windows...          131 No se encontró la descripción del id. de evento '131' en el origen 'Microsoft-Window...
+   25479 feb. 27 19:19 Information Microsoft-Windows...          130 No se encontró la descripción del id. de evento '130' en el origen 'Microsoft-Window...
+   25480 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25481 feb. 27 19:19 Information BTHUSB                 1074069522 Windows no puede almacenar códigos de autenticación de Bluetooth (claves de vínculo)...
+   25482 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25483 feb. 27 19:19 Error       VBoxNetLwf             3221487628 El controlador detectó un error interno del controlador en \Device\VBoxNetLwf.
+   25484 feb. 27 19:19 Information Microsoft-Windows...            1 El sistema estaba en un estado de baja energía y se reanudó....
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | sort TimeGenerated | sort Index
+
+   Index Time          EntryType   Source                 InstanceID Message
+   ----- ----          ---------   ------                 ---------- -------
+   25435 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25436 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25437 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25438 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25439 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25440 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25441 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25442 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25443 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25444 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25445 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25446 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25447 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25448 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25449 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25450 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25451 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25452 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25453 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25454 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25455 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25456 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25457 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25458 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25459 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25460 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25461 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25462 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25463 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25464 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25465 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25466 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25467 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25468 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25469 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25470 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25471 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25472 feb. 27 17:11 Information Microsoft-Windows...           16 No se encontró la descripción del id. de evento '16' en el origen 'Microsoft-Windows...
+   25473 feb. 27 17:11 Information Microsoft-Windows...           35 El servicio de hora está sincronizando la hora del sistema con el origen de la hora ...
+   25474 feb. 27 17:11 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-27T22:11:36.843224300Z...
+   25475 feb. 27 17:38 Information Microsoft-Windows...           42 No se encontró la descripción del id. de evento '42' en el origen 'Microsoft-Windows...
+   25476 feb. 27 17:38 Information Microsoft-Windows...          107 No se encontró la descripción del id. de evento '107' en el origen 'Microsoft-Window...
+   25477 feb. 27 19:19 Information Microsoft-Windows...            1 Posible detección de CVE: 2020-02-28T00:19:11.500000000Z...
+   25478 feb. 27 19:19 Information Microsoft-Windows...          131 No se encontró la descripción del id. de evento '131' en el origen 'Microsoft-Window...
+   25479 feb. 27 19:19 Information Microsoft-Windows...          130 No se encontró la descripción del id. de evento '130' en el origen 'Microsoft-Window...
+   25480 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25481 feb. 27 19:19 Information BTHUSB                 1074069522 Windows no puede almacenar códigos de autenticación de Bluetooth (claves de vínculo)...
+   25482 feb. 27 19:19 Information Microsoft-Windows...          105 No se encontró la descripción del id. de evento '105' en el origen 'Microsoft-Window...
+   25483 feb. 27 19:19 Error       VBoxNetLwf             3221487628 El controlador detectó un error interno del controlador en \Device\VBoxNetLwf.
+   25484 feb. 27 19:19 Information Microsoft-Windows...            1 El sistema estaba en un estado de baja energía y se reanudó....
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | sort TimeGenerated | sort Index | select -Property Index, TimeGenerated, Source
+
+Index TimeGenerated            Source
+----- -------------            ------
+25435 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25436 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25437 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25438 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25439 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25440 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25441 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25442 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25443 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25444 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25445 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25446 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25447 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25448 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25449 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25450 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25451 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25452 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25453 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25454 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25455 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25456 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25457 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25458 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25459 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25460 27/02/2020 5:11:26 p. m. Microsoft-Windows-Kernel-General
+25461 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25462 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25463 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25464 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25465 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25466 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25467 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25468 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25469 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25470 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25471 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25472 27/02/2020 5:11:27 p. m. Microsoft-Windows-Kernel-General
+25473 27/02/2020 5:11:36 p. m. Microsoft-Windows-Time-Service
+25474 27/02/2020 5:11:36 p. m. Microsoft-Windows-Kernel-General
+25475 27/02/2020 5:38:45 p. m. Microsoft-Windows-Kernel-Power
+25476 27/02/2020 5:38:48 p. m. Microsoft-Windows-Kernel-Power
+25477 27/02/2020 7:19:11 p. m. Microsoft-Windows-Kernel-General
+25478 27/02/2020 7:19:11 p. m. Microsoft-Windows-Kernel-Power
+25479 27/02/2020 7:19:11 p. m. Microsoft-Windows-Kernel-Power
+25480 27/02/2020 7:19:12 p. m. Microsoft-Windows-Kernel-Power
+25481 27/02/2020 7:19:12 p. m. BTHUSB
+25482 27/02/2020 7:19:19 p. m. Microsoft-Windows-Kernel-Power
+25483 27/02/2020 7:19:24 p. m. VBoxNetLwf
+25484 27/02/2020 7:19:25 p. m. Microsoft-Windows-Power-Troubleshooter
+
+
+PS C:\WINDOWS\system32> Get-EventLog System -Newest 50 | sort TimeGenerated | sort Index | select -Property Index, TimeGenerated, Source | Out-File pregunta12.txt
+PS C:\WINDOWS\system32> <#Fin del Taller>
+Falta el terminador '#>' en el comentario de varias líneas.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingTerminatorMultiLineComment
+
+PS C:\WINDOWS\system32> Stop-Transcript
+**********************
+Fin de la transcripción de Windows PowerShell
+Hora de finalización: 20200227200419
+**********************

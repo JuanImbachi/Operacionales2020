@@ -1,0 +1,101 @@
+Taller 3 Powershell
+--------------------------------------------------------------------
+Nombre: Juan Manuel Imbachí Güengue
+Código: A00130580
+--------------------------------------------------------------------
+1.Cree dos archivos de texto similares (con una o dos líneas diferentes). Compárelos empleando diff.
+R/
+	- get-process | export-clixml procesosTest1.xml
+	- get-process | export-clixml procesosTest2.xml
+	- diff -Ref (Import-Clixml .\procesosTest1.xml) -Diff (Import-Clixml .\procesosTest2.xml) -Property name
+		
+		name                 SideIndicator
+		----                 -------------
+		LeagueClientUx       <=           
+		LeagueClientUxRender <=           
+		LeagueClientUxRender <=  
+
+2.Qué ocurre si se ejecuta:
+get-service | export-csv servicios.csv | out-file
+Por qué?
+
+R/	Ocurre un error puesto que se quiere dar salida a archivo sin darle nombre para ser almacenado, es decir, no se específica el path
+
+3. Cómo haría para crear un archivo delimitado por puntos y comas (;)? PISTA: Se emplea export-csv, pero con un 	parámetro adicional.
+
+R/
+	Usaría el parámetro -Delimeter<char> del comando Export-Csv que me permite especificar el elemento con el cual 	quiero separar los valores de las propiedades
+
+		get-process | export-csv procesos.csv -Delimiter ";"
+
+
+4.Export-cliXML y Export-CSV modifican el sistema, porque pueden crear y sobreescribir archivos. Existe algún parámetro que evite la sobreescritura de un archivo existente? Existe algún parámetro que permita que el comando pregunte antes de sobresscribir un archivo?
+
+R/ Si, con el parámetro -NoClobber <SwitchParameter> indica que no se sobreescriba un archivo existente y el parámetro -Confirm para confirmar que desea ejecutar el cdmlet
+
+5.Windows emplea configuraciones regionales, lo que incluye el separador de listas. En Windows en inglés, el separador de listas es la coma (,). Cómo se le dice a Export-CSV que emplee el separador del sistema en lugar de la coma?
+R/ 	-UseCulture <SwitchParameter>
+
+6.Identifique un cmdlet que permita generar un número aleatorio.
+R/ - Get-Random
+
+7.Identifique un cmdlet que despliegue la fecha y hora actuales.
+R/ - Get-Date
+
+8.Qué tipo de objeto produce el cmdlet de la pregunta 7?
+R/ Produce un DateTime Object
+
+9.Usando el cmdlet de la pregunta 7 y select-object, despliegue solamente el día de la semana, así:
+   DayOfWeek
+   ---------
+    Thursday
+R/ Get-Date | Select-Object DayOfWeek
+
+10.Identifique un cmdlet que muestre información acerca de parches (hotfixes) instalados en el sistema.
+R/ - Get-Hotfix
+
+11.Empleando el cmdlet de la pregunta 10, muestre una lista de parches instalados. Luego extienda la expresión para ordenar la lista por fecha de instalación, y muestre en pantalla únicamente la fecha de instalación, el usuario que instaló el parche, y el ID del parche. Recuerde examinar los nombres de las propiedades.
+R/ 
+	- Get-HotFix | select -Property InstalledOn,InstalledBy,HotFixId | sort InstalledOn
+
+		InstalledOn               InstalledBy         HotFixId 
+		-----------               -----------         -------- 
+		31/08/2019 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4508433
+		2/09/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4503308
+		11/09/2019 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4515383
+		11/09/2019 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4516115
+		5/10/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4520390
+		9/10/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4521863
+		14/11/2019 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4524569
+		16/01/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4528759
+		12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4534132
+		12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4537759
+		12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4538674
+		12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4532693
+		14/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4524244
+
+12.Complemente la solución a la pregunta 11, para que el sistema ordene los resultados por la descripción del parche, e incluya en el listado la descripción, el ID del parche, y la fecha de instalación. Escriba los resultados a un archivo HTML.
+R/
+
+		- Get-HotFix | select -Property Description,HotFixId,InstalledOn | sort Description
+
+		Description     HotFixId  InstalledOn              
+		-----------     --------  -----------              
+		Security Update KB4503308 2/09/2019 12:00:00 a. m. 
+		Security Update KB4508433 31/08/2019 12:00:00 a. m.
+		Security Update KB4515383 11/09/2019 12:00:00 a. m.
+		Security Update KB4516115 11/09/2019 12:00:00 a. m.
+		Security Update KB4520390 5/10/2019 12:00:00 a. m. 
+		Security Update KB4521863 9/10/2019 12:00:00 a. m. 
+		Security Update KB4524244 14/02/2020 12:00:00 a. m.
+		Security Update KB4524569 14/11/2019 12:00:00 a. m.
+		Security Update KB4528759 16/01/2020 12:00:00 a. m.
+		Security Update KB4537759 12/02/2020 12:00:00 a. m.
+		Security Update KB4538674 12/02/2020 12:00:00 a. m.
+		Update          KB4534132 12/02/2020 12:00:00 a. m.
+		Update          KB4532693 12/02/2020 12:00:00 a. m.
+
+13.Muestre una lista de las 50 entradas más nuevas del log de eventos System. Ordene la lista de modo que las entradas más antiguas aparezcan primero; las entradas producidas al mismo tiempo deben ordenarse por número índice. Muestre el número índice, la hora y la fuente para cada entrada. Escriba esta información en un archivo de texto plano.
+R/
+
+	Get-EventLog System -Newest 50 | sort TimeGenerated | sort Index | select -Property Index, TimeGenerated, Source | Out-File pregunta12.txt
